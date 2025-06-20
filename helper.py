@@ -5,6 +5,17 @@ from fuzzywuzzy import fuzz
 import pickle
 import numpy as np
 
+import nltk
+
+# Download stopwords if not already downloaded
+try:
+    from nltk.corpus import stopwords
+    stopwords.words("english")
+except LookupError:
+    nltk.download("stopwords")
+    from nltk.corpus import stopwords
+
+
 cv = pickle.load(open('cv.pkl','rb'))
 
 
